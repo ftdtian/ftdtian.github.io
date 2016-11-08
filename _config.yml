@@ -68,7 +68,7 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy: 
-  type: git
+  type: github
   repository: https://github.com/ftdtian/ftdtian.github.io.git
   branch: master
 
