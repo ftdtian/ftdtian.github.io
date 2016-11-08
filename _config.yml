@@ -5,9 +5,9 @@
 # Site
 title: Hexo
 subtitle:
-description:
-author: John Doe
-language:
+description: 熬夜对身体有害？举个例子吧。
+author: ftdtian
+language: zh-Hans
 timezone:
 
 # URL
@@ -63,9 +63,12 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy: master
-  type:
+deploy: 
+  type: git
+  repository: https://github.com/ftdtian/ftdtian.github.io.git
+  branch: master
+
