@@ -1,5 +1,5 @@
 ---
-title: ftdtian
+title: hexo多端尝试
 date: 2016-11-08 21:08:05
 tags:
 category: "杂谈"
