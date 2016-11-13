@@ -14,13 +14,19 @@ keywords: "notes,ftdtian,blog"
 rss:
 
 # Specify the date when the site was setup
-#since: 2015
+since: 2016
 
+#nks_title: Links
+# links:
+ # zyf的博客: http://www.zhaoyafei.cn/
 # Canonical, set a canonical link tag in your hexo, you could use it for your SEO of blog.
 # See: https://support.google.com/webmasters/answer/139066
 # Tips: Before you open this tag, remeber set up your URL in hexo _config.yml ( ex. url: http://yourdomain.com )
-canonical: true
+#canonical: true
 
+#links_title: 友情链接
+links:
+  赵亚飞的博客: http://www.zhaoyafei.cn/
 
 # ---------------------------------------------------------------
 # Menu Settings
@@ -48,7 +54,7 @@ menu_icons:
   home: home
   about: user
   categories: th
-  schedule: calendar
+  # schedule: calendar
   tags: tags
   archives: archive
   commonweal: heartbeat
@@ -126,7 +132,7 @@ font:
 #social:
   #LinkLabel: Link
 social:
-  github: https://github.com/ftdtian
+  Github: https://github.com/ftdtian
   Weibo: http://weibo.com/u/3319659097
 
 # Social Links Icons
@@ -139,8 +145,9 @@ social_icons:
   # Icon Mappings.
   # KeyMapsToSocalItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
-  Twitter: twitter
   Weibo: weibo
+  # Twitter: twitter
+
 
 
 # Sidebar Avatar
@@ -160,7 +167,7 @@ toc:
 # Creative Commons 4.0 International License.
 # http://creativecommons.org/
 # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
-#creative_commons: by-nc-sa
+creative_commons: by-nc-sa
 #creative_commons:
 
 
