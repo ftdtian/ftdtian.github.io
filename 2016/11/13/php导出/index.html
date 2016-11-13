@@ -84,15 +84,19 @@
 
 
 
-<meta name="description" content="应届渣渣">
-<meta property="og:type" content="website">
-<meta property="og:title" content="是添不是天">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="背景前段时间做需求，产品妹子让优化导出相关的功能，她说目前的导出每次只能导1000条，而且贼慢。？？？我打开看了下导出功能的代码(订单相关的导出)，大致逻辑是这样的，从库中拿1000条订单的数据，由于导出关联到很多数据，商品、sku、优惠券、积分，这些数据都在不同表中，挨个查呗，然后就出现了最省事却最坑爹的方法。。123foreach() &amp;#123;    //sql查库&amp;#125;
+查这些数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="业务提升技术之php导出">
+<meta property="og:url" content="http://yoursite.com/2016/11/13/php导出/index.html">
 <meta property="og:site_name" content="是添不是天">
-<meta property="og:description" content="应届渣渣">
+<meta property="og:description" content="背景前段时间做需求，产品妹子让优化导出相关的功能，她说目前的导出每次只能导1000条，而且贼慢。？？？我打开看了下导出功能的代码(订单相关的导出)，大致逻辑是这样的，从库中拿1000条订单的数据，由于导出关联到很多数据，商品、sku、优惠券、积分，这些数据都在不同表中，挨个查呗，然后就出现了最省事却最坑爹的方法。。123foreach() &amp;#123;    //sql查库&amp;#125;
+查这些数据">
+<meta property="og:updated_time" content="2016-11-13T12:47:00.331Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="是添不是天">
-<meta name="twitter:description" content="应届渣渣">
+<meta name="twitter:title" content="业务提升技术之php导出">
+<meta name="twitter:description" content="背景前段时间做需求，产品妹子让优化导出相关的功能，她说目前的导出每次只能导1000条，而且贼慢。？？？我打开看了下导出功能的代码(订单相关的导出)，大致逻辑是这样的，从库中拿1000条订单的数据，由于导出关联到很多数据，商品、sku、优惠券、积分，这些数据都在不同表中，挨个查呗，然后就出现了最省事却最坑爹的方法。。123foreach() &amp;#123;    //sql查库&amp;#125;
+查这些数据">
 
 
 
@@ -114,7 +118,7 @@
 
 
 
-  <title> 是添不是天 </title>
+  <title> 业务提升技术之php导出 | 是添不是天 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -135,9 +139,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -224,9 +226,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -246,10 +248,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/11/13/php导出/" itemprop="url">
-                  业务提升技术之php导出
-                </a>
+                业务提升技术之php导出
               
             
           </h1>
@@ -308,9 +307,7 @@
       
 
       
-        
-          
-            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>前段时间做需求，产品妹子让优化导出相关的功能，她说目前的导出每次只能导1000条，而且贼慢。<br>？？？<br>我打开看了下导出功能的代码(订单相关的导出)，大致逻辑是这样的，从库中拿1000条订单的数据，由于导出关联到很多数据，商品、sku、优惠券、积分，这些数据都在不同表中，挨个查呗，然后就出现了最省事却最坑爹的方法。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">foreach() &#123;</div><div class="line">    //sql查库</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>前段时间做需求，产品妹子让优化导出相关的功能，她说目前的导出每次只能导1000条，而且贼慢。<br>？？？<br>我打开看了下导出功能的代码(订单相关的导出)，大致逻辑是这样的，从库中拿1000条订单的数据，由于导出关联到很多数据，商品、sku、优惠券、积分，这些数据都在不同表中，挨个查呗，然后就出现了最省事却最坑爹的方法。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">foreach() &#123;</div><div class="line">    //sql查库</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>查这些数据确实需要多次查，好歹批量查一下啊，查询条件都是一条一条的，1000条数据要查不知道多少次，对数据库压力太大。<br>商家点击导出后，就开始等等等，有时候导出的脚本挂了，商家也不知道。</p>
 <h2 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h2><p>最终要解决的问题是，提高导出上限、加快导出速度、减少DB压力</p>
 <h3 id="第一阶段"><a href="#第一阶段" class="headerlink" title="第一阶段"></a>第一阶段</h3><p>1.梳理了导出最终结果的数据源，需要哪些表、哪些字段。<br>2.从导出的Excel改为导出csv（借助php的fputcsv）<br>3.数据批量读取</p>
@@ -326,16 +323,20 @@
 <p>以上~</p>
 <h2 id="附导出例子"><a href="#附导出例子" class="headerlink" title="附导出例子"></a>附导出例子</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">abstract class ExportCSV&#123; // class start</div><div class="line"></div><div class="line">    //抽象方法，标题，数据</div><div class="line"></div><div class="line"></div><div class="line">    /** 获取导出的title</div><div class="line">     * @return Array</div><div class="line">     */</div><div class="line">    abstract protected function getExportFields();</div><div class="line"></div><div class="line">    /** 获取数据</div><div class="line">     * @param  int $offset 偏移量</div><div class="line">     * @param  int $limit  获取的记录条数</div><div class="line">     * @return Array</div><div class="line">     */</div><div class="line">    abstract protected function getExportData();</div><div class="line"></div><div class="line"></div><div class="line">    // 定义类属性</div><div class="line">    protected $exportName = &apos;export.csv&apos;; // 导出的文件名</div><div class="line">    protected $delimiter = &apos;,&apos;;           // 设置分隔符</div><div class="line">    protected $enclosure = &apos;&quot;&apos;;           // 设置定界符</div><div class="line">    protected $isIconv = true;              //编码转换</div><div class="line">    protected $fp;</div><div class="line">    protected $times = 0;               //输出次数</div><div class="line">    protected $flush = 10;              //多少次flush</div><div class="line"></div><div class="line"></div><div class="line">    /** 设置每次flush时的次数</div><div class="line">     * @param int $limit 每次flush时的次数</div><div class="line">     */</div><div class="line">    public function setLimit($limit = 0)</div><div class="line">    &#123;</div><div class="line">        if (is_numeric($limit) &amp;&amp; $limit &gt; 0) &#123;</div><div class="line">            $this-&gt;limit = $limit;</div><div class="line">        &#125;</div><div class="line">        return $this;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    /** 设置导出的文件名</div><div class="line">     * @param String $filename 导出的文件名</div><div class="line">     */</div><div class="line">    public function setExportName($filename)</div><div class="line">    &#123;</div><div class="line">        if (substr($filename, -4) == &apos;.csv&apos;) &#123;</div><div class="line"></div><div class="line">            $filename = substr($filename, 0, -4);</div><div class="line">        &#125;</div><div class="line">        $this-&gt;exportName = $filename.&apos;.csv&apos;;</div><div class="line"></div><div class="line">        return $this;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 分隔符和环绕符</div><div class="line">     * setControls</div><div class="line">     * @param $delimiter</div><div class="line">     * @param $enclosure</div><div class="line">     * @return $this</div><div class="line">     */</div><div class="line">    public function setControls($delimiter, $enclosure)</div><div class="line">    &#123;</div><div class="line">        $this-&gt;delimiter = $delimiter;</div><div class="line">        $this-&gt;enclosure = $enclosure;</div><div class="line">        return $this;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    public function exportInit() &#123;</div><div class="line">        // 设置导出文件header</div><div class="line">        $this-&gt;setHeader();</div><div class="line">        //直接输出到浏览器</div><div class="line">        $fp = fopen(&apos;php://output&apos;, &apos;w&apos;);</div><div class="line"></div><div class="line">        $this-&gt;fp = $fp;</div><div class="line">        // 获取导出的列名</div><div class="line">        $title = $this-&gt;getExportFields();</div><div class="line"></div><div class="line">        $title = array_map(array($this,&apos;formatCSV&apos;), $title);</div><div class="line"></div><div class="line">        fputcsv($fp, $title, $this-&gt;delimiter, $this-&gt;enclosure);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    /** 导出csv */</div><div class="line">    public function export()</div><div class="line">    &#123;</div><div class="line">        $this-&gt;times++;</div><div class="line">        $fp = $this-&gt;fp;</div><div class="line">        //获取导出的数据</div><div class="line">        $data = $this-&gt;getExportData();</div><div class="line"></div><div class="line">        foreach ($data as $k =&gt; $item) &#123;</div><div class="line"></div><div class="line">            if ($this-&gt;times == $this-&gt;flush) &#123;</div><div class="line">                //刷新输出buffer</div><div class="line">                ob_flush();</div><div class="line">                flush();</div><div class="line">                $this-&gt;times = 0;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            $item = array_map(array($this,&apos;formatCSV&apos;), $item);</div><div class="line"></div><div class="line">            //导出数据</div><div class="line">            fputcsv($fp, $item, $this-&gt;delimiter, $this-&gt;enclosure);</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    /** 设置导出文件header */</div><div class="line">    private function setHeader()&#123;</div><div class="line"></div><div class="line">        header(&apos;content-type:text/x-csv&apos;);</div><div class="line"></div><div class="line">        $ua = $_SERVER[&apos;HTTP_USER_AGENT&apos;];</div><div class="line"></div><div class="line">        if (preg_match(&quot;/MSIE/&quot;, $ua)) &#123;</div><div class="line"></div><div class="line">            header(&apos;content-disposition:attachment; filename=&quot;&apos;.rawurlencode($this-&gt;exportName).&apos;&quot;&apos;);</div><div class="line"></div><div class="line">        &#125; else if(preg_match(&quot;/Firefox/&quot;, $ua)) &#123;</div><div class="line"></div><div class="line">            header(&quot;content-disposition:attachment; filename*=\&quot;utf8&apos;&apos;&quot;.$this-&gt;exportName.&apos;&quot;&apos;);</div><div class="line"></div><div class="line">        &#125; else &#123;</div><div class="line">            header(&apos;content-disposition:attachment; filename=&quot;&apos;.$this-&gt;exportName.&apos;&quot;&apos;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //编码转换</div><div class="line">    private function formatCSV($str)</div><div class="line">    &#123;</div><div class="line">        return $this-&gt;isIconv ? iconv(&apos;utf-8&apos;, &apos;gbk&apos;, $str) : $str;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class CCExport extends ExportCSV&#123;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    protected  $data;</div><div class="line">    protected  $title;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    public function setExportData($data)</div><div class="line">    &#123;</div><div class="line">        $this-&gt;data = $data;</div><div class="line">        return $this;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public function setExportTitle($title)</div><div class="line">    &#123;</div><div class="line">        $this-&gt;title = is_array($title) ? $title : explode(&apos;,&apos;,$title);</div><div class="line">        return $this;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"> </div><div class="line">    protected function getExportFields()</div><div class="line">    &#123;</div><div class="line">        return $this-&gt;title;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /* 返回数据</div><div class="line"></div><div class="line">    * @return Array</div><div class="line">    */</div><div class="line">    protected function getExportData()&#123;</div><div class="line">        return $this-&gt;data;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">    </div><div class="line">    $title = &apos;aaa&apos;; //设置title</div><div class="line">    $fileName = &apos;bbb&apos; //设置文件名</div><div class="line">    $exportObj = new CCExport(); //实例化</div><div class="line">    $exportObj-&gt;setExportName($fileName)-&gt;setExportTitle($title)-&gt;exportInit();</div><div class="line">    /*</div><div class="line">        todo 构建结果集$rlt</div><div class="line">    </div><div class="line">    */</div><div class="line">    $exportObj-&gt;setExportData($rlt)-&gt;export();</div></pre></td></tr></table></figure>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -343,132 +344,32 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/11/08/ftdtian/" rel="next" title="hexo多端尝试">
+                <i class="fa fa-chevron-left"></i> hexo多端尝试
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/11/08/ftdtian/" itemprop="url">
-                  hexo多端尝试
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-08T21:08:05+08:00" content="2016-11-08">
-              2016-11-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/杂谈/" itemprop="url" rel="index">
-                    <span itemprop="name">杂谈</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>好久都没有两点前睡过，熬夜对身体危害好大啊，举个例子吧？不举。<br>今晚实验一下多端用hexo，到最后一步deploy老是失败，fatal: could not read Username for ‘GitHub ？？？<br>查了好久有人说是git版本问题，卸了2.5版本的git装上1.9立马成功，真闹心。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -476,6 +377,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -495,8 +400,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -579,6 +493,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重写"><span class="nav-number">2.</span> <span class="nav-text">重写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一阶段"><span class="nav-number">2.1.</span> <span class="nav-text">第一阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二阶段"><span class="nav-number">2.2.</span> <span class="nav-text">第二阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三阶段"><span class="nav-number">2.3.</span> <span class="nav-text">第三阶段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附导出例子"><span class="nav-number">3.</span> <span class="nav-text">附导出例子</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -682,6 +607,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
