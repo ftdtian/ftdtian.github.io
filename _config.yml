@@ -72,3 +72,7 @@ deploy:
   repository: https://github.com/ftdtian/ftdtian.github.io.git
   branch: master
 
+#多说
+duoshuo_shortname: ftdtian
+#百度统计
+baidu_analytics: 381c12f43641cb8d6e6e9a94a519e7be
