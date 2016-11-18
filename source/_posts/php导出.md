@@ -89,14 +89,14 @@ unset($arr2);
 此次导出需求引发出的问题，大致几点
 1.数据的批量获取，减少查询DB的次数以及合理的sql语句，尤其针对limit较大这种情况
 2.防止php脚本占用过大内存，及时unset内存较大的临时变量(对于一些正常的增删改查业务接口，可以不使用unset，等脚本结束后GC自动回收)
-3.细节相关，array_unique效率低于array_flip+array_keys()，多层for循环构建数据的优化方法
+3.细节相关，array_unique效率低于array_flip+array_keys，多层for循环构建数据的优化方法
 
 #### 小插曲
 之前在测试环境测试的时候，脚本老是中断，导出的数据量总是不一致，当时真的懵逼了，脚本怎么莫名中断，结果上服务器看了下php-fpm执行超时时间为10S，哔了狗。
 
 
 ### 附导出例子
-```
+```php
 <?php
 abstract class ExportCSV{ // class start
 
