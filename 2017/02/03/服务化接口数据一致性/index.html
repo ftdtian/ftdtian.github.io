@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="业务驱使技术,php,mysql," />
+  <meta name="keywords" content="业务驱使技术,php," />
 
 
 
@@ -96,7 +96,7 @@
 紧接着产品继续搞事情，业务方开始对接，营销工具的购买。整体流程简单明了，商家充值">
 <meta property="og:image" content="http://ogdi895gw.bkt.clouddn.com/flow_20170203_1.png">
 <meta property="og:image" content="http://ogdi895gw.bkt.clouddn.com/flow_20170203_2.png">
-<meta property="og:updated_time" content="2017-02-03T09:16:54.233Z">
+<meta property="og:updated_time" content="2017-02-04T09:01:41.544Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务化接口数据一致性">
 <meta name="twitter:description" content="A 背景公司业务不断壮大，玩法也越来越多。某天，产品开始搞事情，将商家在商家后台的使用的营销工具，活动报名，广告投放，都已改成收费模式。。商家可通过后台直接进行线上充值，然后购买相应的工具。由于工具的种类较多，且后续可能继续延伸，所以将购买消费功能封装成底层接口，统一聚合。
@@ -355,7 +355,7 @@
 <blockquote>
 <p>curl请求超时errno = 28，连接超时和执行超时错误代码都是28，连接超时接口一定是没有执行的，不必担心，操作超时就很尴尬了，errno依旧是28，但是请求的接口依旧执行完成。这种情况在流程2里面，还是炸裂的结果，钱扣了，时间没加上。</p>
 </blockquote>
-<h3 id="C-总结"><a href="#C-总结" class="headerlink" title="C 总结"></a>C 总结</h3><p>针对这种边调用接口，边操作DB的问题，要保证数据一致性，建议还是使用具有ACK机制的延迟消费队列。<br>1.ack机制确保每条消息成功执行<br>2.延迟消费保证(4个9)不会产生主从延迟。<br>3.针对金钱问题，consumer接口增加互斥锁(redis、文件锁都可以)，防止重复调用</p>
+<h3 id="C-总结"><a href="#C-总结" class="headerlink" title="C 总结"></a>C 总结</h3><p>针对这种边调用接口，边操作DB的问题，要保证数据一致性，建议还是使用具有ACK机制的延迟消费队列。调用接口后，向队列中发送一条消息。(对于curl的超时，Operation Time out最好也向队列发消息，再consumer中校验、确认接口是否真正调用成功)<br>1.ack机制确保每条消息成功执行<br>2.延迟消费尽可能保证不会产生主从延迟。<br>3.针对金钱问题，consumer接口增加互斥锁(redis、文件锁都可以)，防止重复调用</p>
 <h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><p>curl请求这个超时问题，区分超时类型有什么好方法呢，难道要使用curl_error()根据超时文案来判断？<br>针对执行超时的问题，大家可以尝试一下<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"></div><div class="line">$url = <span class="string">'http://127.0.0.1/test.php'</span>;</div><div class="line">curl_setopt($ch, CURLOPT_URL, $url);</div><div class="line"></div><div class="line">curl_setopt($ch, CURLOPT_POST, <span class="number">1</span>);</div><div class="line"></div><div class="line"><span class="comment">//php脚本执行超时时间,此处设置1秒</span></div><div class="line">curl_setopt($ch, CURLOPT_TIMEOUT, <span class="number">1</span>);</div><div class="line"><span class="comment">//连接服务器响应超时时间</span></div><div class="line">curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, <span class="number">3</span>);</div><div class="line"></div><div class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</div><div class="line"></div><div class="line">$code = curl_getinfo($ch, CURLINFO_HTTP_CODE);</div><div class="line">$num = curl_errno($ch);</div><div class="line">$msg = curl_error($ch);</div><div class="line"><span class="keyword">echo</span> <span class="string">'http status code：'</span>.$code.<span class="string">'&lt;br/&gt;'</span>;</div><div class="line"><span class="keyword">echo</span> <span class="string">'curl errno：'</span>.$num.<span class="string">'&lt;br/&gt;'</span>;</div><div class="line"><span class="keyword">echo</span> <span class="string">'curl error msg：'</span>.$msg;</div><div class="line">curl_close($ch);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="comment">//test.php</span></div><div class="line">sleep(<span class="number">5</span>);</div><div class="line">file_put_contents(<span class="string">'test.txt'</span>,<span class="string">'test'</span>);</div></pre></td></tr></table></figure></p>
 
       
@@ -382,8 +382,6 @@
             <a href="/tags/业务驱使技术/" rel="tag">#业务驱使技术</a>
           
             <a href="/tags/php/" rel="tag">#php</a>
-          
-            <a href="/tags/mysql/" rel="tag">#mysql</a>
           
         </div>
       
