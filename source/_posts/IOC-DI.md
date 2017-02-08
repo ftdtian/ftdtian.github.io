@@ -265,7 +265,7 @@ class DI implements \ArrayAccess
 ```
 简单介绍一下此类：
 >1.静态属性$_bindings存放已注册的服务(并不一定实例化)，$_instances存放了已经实例化的服务
-2.匿名函数类Closure 实现了类的延迟实例化
+2.匿名函数类Closure搭配call_user_func_array
 3.带参数的类实例化，使用反射ReflectionClass
 4.实例化类是否共享(可选择是否将实例化的对象存放到$_instances中)
 5.实现了ArrayAccess接口，可以以数组形式注册、获取服务
